@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>MA Projects</h2>
+    <p id = "count" style="font-size: 60;">Total Projects: 0</p>
+    <button id="incrementNumber">+</button>
+    <button id="decrementNumber">-</button>  
+    <button id="resetNumber">Reset</button>
+    <button id="save">Save</button>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let count = 0;
+        const countEl = document.getElementById("count");
+        const incrementBtn = document.getElementById("incrementNumber");
+        const decrementBtn = document.getElementById("decrementNumber");
+        const resetBtn = document.getElementById("resetNumber");
+        const saveBtn = document.getElementById("save");
+
+        function updateDisplay() {
+            countEl.textContent = "Total Projects: " + count;
+        }
+
+        incrementBtn.addEventListener("click", function () {
+            count++;
+            updateDisplay();
+        });
+
+        decrementBtn.addEventListener("click", function () {
+            if (count > 0) {
+                count--;
+                updateDisplay();
+            }
+        });
+
+        resetBtn.addEventListener("click", function () {
+            count = 0;
+            updateDisplay();
+        });
+
+        saveBtn.addEventListener("click", function () {
+            localStorage.setItem("projectCount", count);
+            alert("Project count saved: " + count);
+        });
+
+        // Load saved count on page load
+        const savedCount = localStorage.getItem("projectCount");
+        if (savedCount !== null) {
+            count = parseInt(savedCount, 10);
+            updateDisplay();
+        }
+
+    });
+    </script>   
+</body>
+</html>

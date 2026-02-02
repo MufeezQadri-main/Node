@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do application</title>
+</head>
+<body>
+    <h2>To Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter a new task">
+    <button id="addTaskBtn">Add Task</button>
+    <ul id="taskList"></ul> 
+    <button id="clearCompletedBtn">Clear Completed Tasks</button>
+    <button id="saveTasksBtn">Save Tasks</button>
+    <button id="loadTasksBtn">Load Tasks</button>
+    <button id="clearAllBtn">Clear All Tasks</button>
+    <script>
+        let tasks = [];
+        const taskInput = document.getElementById("taskInput");
+        const taskList = document.getElementById("taskList");
+        const addTaskBtn = document.getElementById("addTaskBtn");
+        const clearCompletedBtn = document.getElementById("clearCompletedBtn");
+        const saveTasksBtn = document.getElementById("saveTasksBtn");
+        const loadTasksBtn = document.getElementById("loadTasksBtn");
+        const clearAllBtn = document.getElementById("clearAllBtn");
+        function renderTasks() {
+            taskList.innerHTML = "";
+            tasks.forEach((task, index) => {
+                const li = document.createElement("li");
+                li.textContent = task.text;
+                li.style.textDecoration = task.completed ? "line-through" : "none";
+                li.addEventListener("click", () => {
+                    tasks[index].completed = !tasks[index].completed;
+                    renderTasks();
+                });
+                taskList.appendChild(li);
+            });
+        }
+        addTaskBtn.addEventListener("click", () => {
+            const taskText = taskInput.value.trim();
+            if (taskText) {
+                tasks.push({ text: taskText, completed: false });
+                taskInput.value = "";
+                renderTasks();
+            } else {
+                alert("Please enter a task.");
+            }
+        });
+        clearCompletedBtn.addEventListener("click", () => {
+            tasks = tasks.filter(task => !task.completed);
+            renderTasks();
+        });
+        saveTasksBtn.addEventListener("click", () => {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            alert("Tasks saved!");
+        });
+        loadTasksBtn.addEventListener("click", () => {      
+            const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+            if (savedTasks) {
+                tasks = savedTasks;
+                renderTasks();
+            } else {
+                alert("No saved tasks found.");
+            }
+        });
+        clearAllBtn.addEventListener("click", () => {
+            tasks = [];
+            renderTasks();
+        });
+        renderTasks();
+
+    </script>
+    
+</body>
+</html>
