@@ -1,0 +1,121 @@
+// const display = document.getElementById("display")
+
+// const button0 = document.getElementById("btn0")
+// const button1 = document.getElementById("btn1")
+// // const button2 = document.getElementById("btn2")
+// // const button3 = document.getElementById("btn3")
+// // const button4 = document.getElementById("btn4")
+// // const button5 = document.getElementById("btn5")
+// // const button6 = document.getElementById("btn6")
+// // const button7 = document.getElementById("btn7")
+// // const button8 = document.getElementById("btn8")
+// // const button9 = document.getElementById("btn9")
+// const add = document.getElementById("add")
+// // const sub = document.getElementById("sub")
+// // const multi = document.getElementById("multi")
+// const div = document.getElementById("div")
+// const clear = document.getElementById("clear")
+// const equal = document.getElementById("equal")
+
+// let input1 = 0
+// let input2
+// let ourOperator = ""
+// let current = ("input1")
+
+// function inputNumbers(value) {
+//     if (current === "input1") {
+//         console.log(typeof value,"----")
+//         input1 = value;
+//         console.log(input1,"----")
+//         display.value = input1;
+//     } else if (current === "input2") {
+//         input2 = value;
+//         display.value = input2;
+//     }
+// }
+
+// function operator(op) {
+//     ourOperator += op
+//  return ourOperator 
+     
+// }
+
+// button0.addEventListener("click",()=> { 
+//     inputNumbers("0")
+// });
+
+// button1.addEventListener("click", ()=> {
+//     inputNumbers(1)
+// });
+// // button2.addEventListener("click", ()=> {
+// //      inputNumbers("2")
+// // });
+// // button3.addEventListener("click", ()=> {
+// //      inputNumbers("3")
+// // });
+// // button4.addEventListener("click", ()=> {
+// //      inputNumbers("4")
+// // });
+// // button5.addEventListener("click", ()=> {
+// //      inputNumbers("5")
+// // });
+// // button6.addEventListener("click", ()=> {
+// //      inputNumbers("6")
+// // });
+// // button7.addEventListener("click", ()=> {
+// //      inputNumbers("7")
+// // });
+// // button8.addEventListener("click", ()=> {
+// //      inputNumbers("8")
+// // });
+// // button9.addEventListener("click", ()=> {
+// //      inputNumbers("9")
+// // });
+
+
+
+// add.addEventListener("click", ()=> {
+//     operator("+")
+// })
+// // sub.addEventListener("click", ()=> {
+// //      operator("-")
+// // })
+// // multi.addEventListener("click", ()=> {
+// //      operator("*")
+// // })
+// // div.addEventListener("click", ()=> {
+// //      operator("/")  
+// // })
+
+
+// equal.addEventListener("click", () => {
+//     let result = "";
+//     // console.log(operator(),"op")
+//     // switch (ourOperator) {
+        
+//     //     case '+':
+//     //         result = (input1 + input2);
+//     //         console.log(result);  
+//     //         break;
+//     //     case '-':
+//     //         result = input1 - input2;
+//     //         break;
+//     //     case '*':
+//     //         result = input1 * input2;
+//     //         break;
+//     //     case '/':
+//     //         if (input1 || input2 !== 0) {
+//     //             return result = input1 / input2
+//     //         } else {
+//     //             "error"
+//     //         }
+//     //         break;
+//     // }
+
+//     display.innerText = result; 
+//     currentValue = result;      
+// });
+
+// clear.addEventListener("click", ()=> {
+//     display.value =""
+// })
